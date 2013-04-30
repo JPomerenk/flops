@@ -13,7 +13,9 @@ public class GamePlayState extends BasicGameState{
 	private int stateID = 0;
 	
 	// area for declaring variables
-	
+	Image block;
+	ArrayList<Image> grid = new ArrayList<Image>();
+		
 	public GamePlayState(int stateID)
 	{
 		this.stateID = stateID;
@@ -28,13 +30,20 @@ public class GamePlayState extends BasicGameState{
 	throws SlickException
 	{
 		// initialize variables here, such as images, ect, ('loading')
-		
+		for(int i=0; i<10;i++)
+		{
+			grid.add(new Image("res/Empty.png"));
+		}
 	}
 	
 	public void render(GameContainer gc, StateBasedGame sb, Graphics g)
 	throws SlickException
 	{
 		// method for drawing or 'render'ing
+		for(Image i : grid)
+		{
+			i.draw(grid.indexOf(i) * 24, grid.indexOf(i) * 24);
+		}
 	}
 
 	@Override
